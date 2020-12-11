@@ -20,7 +20,11 @@ class MVVMInfoTableViewCell: UITableViewCell {
                 descriptionLabel.text = " \(description) "
             }
             if let imagetitle = rowItem.image {
-                self.photoView.image = UIImage.init(named: imagetitle)
+                if imagetitle == "apple" || imagetitle.isEmpty{
+                    photoView.image = UIImage.init(named: imagetitle)
+                }else{
+                self.update(imageUrl: imagetitle)
+                }
             }
             
         }
@@ -36,11 +40,14 @@ class MVVMInfoTableViewCell: UITableViewCell {
                 descriptionLabel.text = " \(description) "
             }
             if let imagetitle = rowItem.imageHref {
-                self.photoView.image = UIImage.init(named: imagetitle)
+                print("imagetitle",imagetitle)
+                self.update(imageUrl: imagetitle)
             }
             
         }
     }
+    
+    
     // MARK: - Image
     let photoView:UIImageView = {
         let img = UIImageView()
@@ -71,6 +78,11 @@ class MVVMInfoTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    // MARKL: - image lazy loading
+    func update(imageUrl: String) {
+        photoView.setImage(url: imageUrl, placeholderImage: UIImage(named: "apple"))
+    }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

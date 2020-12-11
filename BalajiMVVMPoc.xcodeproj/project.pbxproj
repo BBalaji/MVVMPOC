@@ -17,6 +17,9 @@
 		0082EF1625834BD000C7772B /* MVVMInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082EF1525834BD000C7772B /* MVVMInfoTableViewCell.swift */; };
 		0082EF1A25834FA300C7772B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082EF1925834FA300C7772B /* Service.swift */; };
 		0082EF1D2583526F00C7772B /* MVVMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082EF1C2583526F00C7772B /* MVVMViewModel.swift */; };
+		0082EF2F2583DB7D00C7772B /* MKImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082EF2E2583DB7D00C7772B /* MKImageDownloader.swift */; };
+		0082EF332583DB8D00C7772B /* MKImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082EF322583DB8D00C7772B /* MKImageDownloadManager.swift */; };
+		0082EF362583DB9900C7772B /* CellImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0082EF352583DB9900C7772B /* CellImageDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		0082EF1525834BD000C7772B /* MVVMInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMInfoTableViewCell.swift; sourceTree = "<group>"; };
 		0082EF1925834FA300C7772B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		0082EF1C2583526F00C7772B /* MVVMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMViewModel.swift; sourceTree = "<group>"; };
+		0082EF2E2583DB7D00C7772B /* MKImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKImageDownloader.swift; sourceTree = "<group>"; };
+		0082EF322583DB8D00C7772B /* MKImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKImageDownloadManager.swift; sourceTree = "<group>"; };
+		0082EF352583DB9900C7772B /* CellImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellImageDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		0082EEF1258341D700C7772B /* BalajiMVVMPoc */ = {
 			isa = PBXGroup;
 			children = (
+				0082EF2D2583DB5A00C7772B /* ImageDownloader */,
 				0082EF1825834F8000C7772B /* Service */,
 				0082EF08258342A600C7772B /* MVVM */,
 				0082EEF2258341D700C7772B /* AppDelegate.swift */,
@@ -133,6 +140,16 @@
 				0082EF1925834FA300C7772B /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		0082EF2D2583DB5A00C7772B /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				0082EF2E2583DB7D00C7772B /* MKImageDownloader.swift */,
+				0082EF322583DB8D00C7772B /* MKImageDownloadManager.swift */,
+				0082EF352583DB9900C7772B /* CellImageDownloader.swift */,
+			);
+			path = ImageDownloader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +229,9 @@
 				0082EF1325834B7800C7772B /* MVVMModel.swift in Sources */,
 				0082EEF3258341D700C7772B /* AppDelegate.swift in Sources */,
 				0082EEF5258341D700C7772B /* SceneDelegate.swift in Sources */,
+				0082EF2F2583DB7D00C7772B /* MKImageDownloader.swift in Sources */,
+				0082EF362583DB9900C7772B /* CellImageDownloader.swift in Sources */,
+				0082EF332583DB8D00C7772B /* MKImageDownloadManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
