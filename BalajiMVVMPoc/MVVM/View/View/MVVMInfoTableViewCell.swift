@@ -10,38 +10,18 @@ import UIKit
 class MVVMInfoTableViewCell: UITableViewCell {
     static let identifier = "MVVMInfoTableViewCell"
     
-    var contactViewModel:MVVMViewModel? {
+    var rowViewModel:MVVMRowViewModel? {
         didSet {
-            guard let rowItem = contactViewModel else {return}
-            if let name = rowItem.title {
-                titleLabel.text = name
+            guard let rowItem = rowViewModel else {return}
+            if let title = rowItem.title {
+                titleLabel.text = title
             }
             if let description = rowItem.description {
                 descriptionLabel.text = " \(description) "
             }
-            if let imagetitle = rowItem.image {
-                if imagetitle == "apple" || imagetitle.isEmpty{
-                    photoView.image = UIImage.init(named: imagetitle)
-                }else{
-                self.update(imageUrl: imagetitle)
-                }
-            }
-            
-        }
-    }
-    
-    var rowViewModel:RowModel? {
-        didSet {
-            guard let rowItem = rowViewModel else {return}
-            if let name = rowItem.title {
-                titleLabel.text = name
-            }
-            if let description = rowItem.rowDescription {
-                descriptionLabel.text = " \(description) "
-            }
-            if let imagetitle = rowItem.imageHref {
-                print("imagetitle",imagetitle)
-                self.update(imageUrl: imagetitle)
+            if let imageString = rowItem.image {
+                print("imagetitle",imageString)
+                self.update(imageUrl: imageString)
             }
             
         }

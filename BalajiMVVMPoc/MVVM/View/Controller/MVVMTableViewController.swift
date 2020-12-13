@@ -25,21 +25,25 @@ class MVVMTableViewController: UITableViewController {
         
         tableView.register(MVVMInfoTableViewCell.self, forCellReuseIdentifier: MVVMInfoTableViewCell.identifier)
 
-        fetchContactData()
+        fetchServerInfoData()
     }
     
-    
-    
-    fileprivate func fetchContactData() {
-        Service.fetchContactMVVMData { (result) in
-            switch result {
-            case .success(let data):
-                self.title = "updated Data"
-                self.contactData = data
-                self.tableView.reloadData()
-            case .failure(let err):
-                print(err.localizedDescription)
-            }
+    //MARK:- GCD Implemented
+    func fetchServerInfoData()  {
+        DispatchQueue.global(qos: .utility).async {
+         Service.fetchServerInfoData { (result) in
+          DispatchQueue.main.async {
+              switch result {
+                case let .success(data):
+                    self.title = data?.title
+                    self.infoModelData = data
+                    self.rowModelData = data!.rows
+                 self.tableView.reloadData()
+                 case let .failure(error):
+                    print(error)
+                 }
+             }
+         }
         }
     }
 
@@ -50,15 +54,14 @@ class MVVMTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactData.count
+        return rowModelData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MVVMInfoTableViewCell.identifier, for: indexPath) as! MVVMInfoTableViewCell
-        cell.contactViewModel = MVVMViewModel(contactData[indexPath.row])
-        
+        cell.rowViewModel = MVVMRowViewModel(rowModelData[indexPath.row])
         return cell
     }
 

@@ -6,16 +6,18 @@
 //
 
 import Foundation
-struct MVVMViewModel {
+
+struct MVVMRowViewModel {
     let image: String?
     let title: String?
     let description: String?
     
-    init(_ mvvmModel: MVVMContactModel) {
-        title = mvvmModel.title
-        image = mvvmModel.image
-        description = mvvmModel.description
+    init(_ mvvmrowsModel: RowModel) {
+        title = mvvmrowsModel.title
+        image = mvvmrowsModel.imageHref
+        description = mvvmrowsModel.rowDescription
         
     }
 }
+
 
