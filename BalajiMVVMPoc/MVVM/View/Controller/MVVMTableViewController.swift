@@ -38,6 +38,8 @@ class MVVMTableViewController: UITableViewController {
                     self.title = data?.title
                     self.infoModelData = data
                     self.rowModelData = data!.rows
+                    //Validate struct empty Variable
+                    self.rowModelData = self.rowModelData.filter { $0.title != nil && $0.rowDescription != "" && $0.imageHref != "" }
                  self.tableView.reloadData()
                  case let .failure(error):
                     print(error)
@@ -54,6 +56,7 @@ class MVVMTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("rowModelData.count :: ",rowModelData.count)
         return rowModelData.count
     }
     

@@ -46,10 +46,10 @@ struct Service {
                 do{
 
                     let str = String(decoding: data, as: UTF8.self)
-                    print(str) 
+                    print(str)
                     
                     let dict = str.toJSON() as? [String:AnyObject]
-                    let json = try JSONSerialization.data(withJSONObject: dict!,   options: .prettyPrinted)
+                    let json = try JSONSerialization.data(withJSONObject: dict!,   options: [])
 
                     let infomodelObjects = try JSONDecoder().decode(InfoModel.self, from: json )
                     result = .success(infomodelObjects)
@@ -83,18 +83,6 @@ struct Service {
             return result
     }
 }
-//MARK: - Sample Data
-let infoMvvmData = [
-    MVVMContactModel(image: "apple", title: "Kelly Goodwin", description: "Designer Designer Designer1 Designer2 Designer3 Designer4 Designer5 Designer Designer Designer Designer Designer Designer1 Designer2 Designer3 Designer4 Designer5 Designer "),
-    MVVMContactModel(image: "apple", title: "Mohammad Hussain", description: "SEO Specialist"),
-    MVVMContactModel(image: "", title: "", description: ""),
-    MVVMContactModel(image: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg", title: "Tamilarasi Mohan", description: "Architect"),
-    MVVMContactModel(image: "apple", title: "Kim Yu", description: "Economist"),
-    MVVMContactModel(image: "apple", title: "Shreya Nithin", description: "Web Strategist"),
-    MVVMContactModel(image: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg", title: "Emily Adams", description: "Product Designer")
-    
-    
-]
 extension String {
     func toJSON() -> Any? {
         guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
