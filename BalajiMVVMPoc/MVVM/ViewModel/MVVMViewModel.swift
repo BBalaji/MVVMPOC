@@ -13,9 +13,9 @@ struct MVVMRowViewModel {
     let description: String?
     
     init(_ mvvmrowsModel: RowModel) {
-        title = mvvmrowsModel.title
+        title = mvvmrowsModel.title ?? " "
         image = mvvmrowsModel.imageHref
-        description = mvvmrowsModel.rowDescription
+        description = mvvmrowsModel.rowDescription ?? " "
         
     }
 }

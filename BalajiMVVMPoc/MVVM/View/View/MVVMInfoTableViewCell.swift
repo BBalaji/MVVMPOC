@@ -17,7 +17,11 @@ class MVVMInfoTableViewCell: UITableViewCell {
                 titleLabel.text = title
             }
             if let description = rowItem.description {
-                descriptionLabel.text = " \(description) "
+                if description.isEmpty{
+                    descriptionLabel.text = " "
+                }else{
+                    descriptionLabel.text = description
+                }
             }
             if let imageString = rowItem.image {
                 print("imagetitle",imageString)
