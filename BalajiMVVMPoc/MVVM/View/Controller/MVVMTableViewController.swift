@@ -76,10 +76,27 @@ class MVVMTableViewController: UITableViewController {
 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MVVMInfoTableViewCell.identifier, for: indexPath) as! MVVMInfoTableViewCell
+        cell.selectionStyle = .none
         cell.rowViewModel = MVVMRowViewModel(rowModelData[indexPath.row])
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Create new Alert
+        let title = rowModelData[indexPath.row].title
+        let dialogMessage = UIAlertController(title: "Title", message: title, preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+         })
+        
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+
+        // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
 }
 
 
